@@ -4,6 +4,7 @@ void word_transform(ifstream &map_file, ifstream &input)
 {
 	auto trans_map = buildMap(map_file);
 	string text;
+	ofstream out("outfile.txt"); //touch a file named outfile.txt to save transitived text
 
 	while (getline(input, text))
 	{
@@ -19,12 +20,13 @@ void word_transform(ifstream &map_file, ifstream &input)
 			}
 			else
 			{
-				cout << " ";
+				out << " ";
 			}
 
-			cout << transform(word, trans_map);
+			out << transform(word, trans_map);
 		}
-		cout << endl;
+		out << endl;
 	}
+	out.close();
 }
 
